@@ -15,13 +15,20 @@ import { ReactNode } from "react";
 import { useAuthStore } from "../../stores/auth";
 import { menuOutline } from "ionicons/icons";
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
 interface Props {
   children?: ReactNode;
 }
 
 export function BasicContainer({ children }: Props) {
-  const { authUser } = useAuthStore();
+  const { authUser, setAuthUser } = useAuthStore();
   const history = useHistory();
+
+  const handleLogout = () => {
+    setAuthUser(undefined);
+    history.push("/auth/login");
+    toast.success("Logged out successfully");
+  };
 
   return (
     <>
@@ -35,7 +42,7 @@ export function BasicContainer({ children }: Props) {
           <div className="flex flex-col">
             <IonList>
               <IonMenuToggle>
-                <IonItem onClick={() => history.push("/")}>
+                <IonItem onClick={() => history.push("/home")}>
                   <IonLabel>Home</IonLabel>
                 </IonItem>
               </IonMenuToggle>
@@ -47,6 +54,11 @@ export function BasicContainer({ children }: Props) {
               <IonMenuToggle>
                 <IonItem onClick={() => history.push("/blogs")}>
                   <IonLabel>Blogs</IonLabel>
+                </IonItem>
+              </IonMenuToggle>
+              <IonMenuToggle>
+                <IonItem onClick={handleLogout}>
+                  <IonLabel>Logout</IonLabel>
                 </IonItem>
               </IonMenuToggle>
             </IonList>

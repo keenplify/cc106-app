@@ -18,7 +18,7 @@ const registerSchema = UserSchema.pick({
 });
 
 const AuthRegister: React.FC = () => {
-  const { setAuthUser } = useAuthState();
+  const { setAuthUser } = useAuthStore();
   const {
     register,
     handleSubmit,

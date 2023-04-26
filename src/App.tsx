@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import { IonApp, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
@@ -43,8 +43,11 @@ const App: React.FC = () => {
         <BasicContainer>
           <Route path="/auth/login" exact component={AuthLogin} />
           <Route path="/auth/register" exact component={AuthRegister} />
-          <Route path="/" exact component={Home} />
+          <Route path="/home" exact component={Home} />
           <Route path="/products" exact component={Products} />
+          <Route path="/" exact>
+            {authUser ? <Redirect to="/home" /> : <Redirect to="/auth/login" />}
+          </Route>
           {authUser && <Fabs />}
         </BasicContainer>
       </IonReactRouter>

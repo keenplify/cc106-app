@@ -7,8 +7,6 @@ import { toast } from "react-toastify";
 export function Fabs() {
   const history = useHistory();
 
-  console.log(history);
-
   const { setAuthUser } = useAuthStore();
 
   const handleLogout = () => {
