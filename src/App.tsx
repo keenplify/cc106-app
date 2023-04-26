@@ -28,7 +28,6 @@ import { BasicContainer } from "./components/containers/BasicContainer";
 import AuthLogin from "./pages/Auth/Login";
 import AuthRegister from "./pages/Auth/Register";
 import Home from "./pages/Home";
-import { Fabs } from "./components/Extras/Fabs";
 import { useAuthStore } from "./stores/auth";
 import Products from "./pages/Products";
 
@@ -48,7 +47,6 @@ const App: React.FC = () => {
           <Route path="/" exact>
             {authUser ? <Redirect to="/home" /> : <Redirect to="/auth/login" />}
           </Route>
-          {authUser && <Fabs />}
         </BasicContainer>
       </IonReactRouter>
     </IonApp>

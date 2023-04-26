@@ -67,7 +67,7 @@ export function BasicContainer({ children }: Props) {
       </IonMenu>
       <IonPage id="main-content">
         <IonContent fullscreen>
-          <div className="w-full h-full flex flex-col bg-[url('/bg.jpg')] bg-no-repeat bg-cover p-4">
+          <div className="w-full min-h-screen flex flex-col bg-[url('/bg.jpg')] bg-no-repeat bg-cover p-4 overflow-y-auto">
             {authUser && (
               <div className="p-4 w-full flex">
                 <img src="/olly.png" className="w-[72px]" />

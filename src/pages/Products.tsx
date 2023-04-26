@@ -5,7 +5,8 @@ const Products: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-8 justify-center items-center h-full">
-      <div className="card glass shadow rounded border-slate-500 border w-[512px] max-w-[90vw] max-h-[80vh] mx-4 overflow-x-hidden">
+      <h2 className="font-bold text-3xl">Products</h2>
+      <div className="card glass shadow rounded border-slate-500 border w-[512px] max-w-[90vw] mx-4 overflow-x-hidden">
         <div className="grid grid-cols-3 overflow-y-auto gap-4 px-4">
           {products?.map((v, key) => (
             <div key={key} className="flex flex-col items-center">
