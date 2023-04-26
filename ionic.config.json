@@ -1,0 +1,7 @@
+{
+  "name": "cc106-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
