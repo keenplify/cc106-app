@@ -30,6 +30,8 @@ import AuthRegister from "./pages/Auth/Register";
 import Home from "./pages/Home";
 import { useAuthStore } from "./stores/auth";
 import Products from "./pages/Products";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 
 setupIonicReact();
 
@@ -44,6 +46,8 @@ const App: React.FC = () => {
           <Route path="/auth/register" exact component={AuthRegister} />
           <Route path="/home" exact component={Home} />
           <Route path="/products" exact component={Products} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/product/:id" exact component={Product} />
           <Route path="/" exact>
             {authUser ? <Redirect to="/home" /> : <Redirect to="/auth/login" />}
           </Route>

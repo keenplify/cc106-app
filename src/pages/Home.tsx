@@ -1,16 +1,24 @@
 import { IonIcon } from "@ionic/react";
 import { zodiosHooks } from "../configs/zodios";
 import { logoFacebook, logoInstagram, logoTwitter } from "ionicons/icons";
+import { useHistory } from "react-router";
 
 const Home: React.FC = () => {
   const { data: products } = zodiosHooks.useListProducts();
+  const history = useHistory();
 
   return (
     <div className="flex flex-col gap-4 justify-center items-center min-h-full">
       <div className="card glass p-4 shadow rounded border-slate-500  border w-[512px] max-w-[90vw] mx-4">
         <div className="flex overflow-x-scroll gap-4">
           {products?.map((v, key) => (
-            <div key={key} className="flex flex-col items-center">
+            <div
+              key={key}
+              className="flex flex-col items-center"
+              onClick={() => {
+                history.push(`/product/${v.id}`);
+              }}
+            >
               <img src={v.image} className="aspect-square w-24 h-24 rounded" />
               <p className="text-sm font-bold w-24 text-center overflow-ellipsis truncate">
                 {v.name}
